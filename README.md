@@ -4,7 +4,9 @@ Generic helpers for card number, expiry and CVV validations
 
 ## Usage: 
 Import the library and initialize card object.
+
 `var cardValidator = require('dist/validator.min.js');`
+
 `var card = cardValidator('4242-4242-4242-4242');`
 
 ### Getting card details
