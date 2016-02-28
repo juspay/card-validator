@@ -147,7 +147,7 @@ function cardValidator(cardNumber) {
   };
 
   validateCvv = function(val) {
-    val = val || ''
+    val = val || '';
     if(!this.cardNumber)
       throw 'Invalid cardNumber property set';
     if(!this.card)
@@ -156,7 +156,7 @@ function cardValidator(cardNumber) {
       throw 'CVV should be a number';
     // if CVV is null
     if(this.cardType && this.cardType == 'maestro')
-      return (val == '') || (val && __indexOf.call(this.cvvLength, val.toString().length) >= 0) || false
+      return (val == '') || (val && __indexOf.call(this.cvvLength, val.toString().length) >= 0) || false;
     if(!val)
       throw 'CVV should be a number';
     return __indexOf.call(this.cvvLength, val.toString().length) >= 0;
@@ -176,7 +176,7 @@ function cardValidator(cardNumber) {
     if(!expiry[0] || !expiry[1] || isNaN(expiry[0]) || isNaN(expiry[1]))
       throw 'Expiry should be in MM/YYYY format';
     if(expiry && expiry.length == 2 && expiry[1] == this.year && expiry[0] < this.month)
-      return false
+      return false;
     return _re.test(val.toString()) && parseInt(expiry[0]) > 0 && parseInt(expiry[0]) < 13 && parseInt(expiry[1]) >= this.year;
   };
 
