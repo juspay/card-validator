@@ -1,0 +1,25 @@
+{
+  "name": "card-validator",
+  "version": "1.0.0",
+  "description": "Card validation helpers for card number, expiry and CVV.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juspay/card-validator.git"
+  },
+  "keywords": [
+    "card-validation",
+    "validation",
+    "card",
+    "checker"
+  ],
+  "author": "boaz.john@juspay.in",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juspay/card-validator/issues"
+  },
+  "homepage": "https://github.com/juspay/card-validator#readme"
+}
