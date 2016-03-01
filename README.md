@@ -34,3 +34,7 @@ eg: `card.setBaseDate('02', '2016');`
 For validating CVV, use:
 `card.validateCvv(111);`
 CVV will be validated based on the brand of the card.
+
+## License
+
+MIT license. Copyright © 2016 - [juspay.in](https://www.juspay.in).
