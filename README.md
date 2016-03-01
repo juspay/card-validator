@@ -5,9 +5,13 @@ Generic helpers for card number, expiry and CVV validations
 ## Usage: 
 Import the library and initialize card object.
 
-`var cardValidator = require('dist/validator.min.js');`
+Install from npm:
+`npm install simple-card-validator --save`
+`var cardValidator = require('simple-card-validator')`
 
-`var card = cardValidator('4242-4242-4242-4242');`
+Or, you can simply use the file from `dist/validator.js` if you are not using node/npm.
+
+`var card = new cardValidator('4242-4242-4242-4242');`
 
 ### Getting card details
 `card.getCardDetails();`

@@ -1,18 +1,18 @@
 function cardValidator(t){return this.cardNumber=t,this.card=null,this.cardType="unknown",this.valid=!1,this.luhnValid=!1,this.lengthValid=!1,this.cvvLength=[],this.month=null,this.year=null,getCardType=function(t){var e,a
 for(e=0,a=cardTypes.length;a>e;e++)if(t.match(cardTypes[e].pattern))return cardTypes[e]
-return null},isValidLuhn=function(t){var e,a,r,i,n,h
-for(r=0,h=t.split("").reverse(),a=i=0,n=h.length;n>i;a=++i)e=h[a],e=+e,a%2?(e*=2,r+=10>e?e:e-9):r+=e
-return r%10===0},isValidLength=function(t,e){var a
-return a=t.length,__indexOf.call(this.card.valid_length,a)>=0},validateCardNumber=function(t){return this.card=this.getCardType(t),this.card&&this.cardType&&(this.cardType=this.card.name,this.luhnValid=this.isValidLuhn(t),this.lengthValid=this.isValidLength(t,this.card),this.cvvLength=this.card.cvv_length),{card_type:this.cardType,valid:this.luhnValid&&this.lengthValid,luhn_valid:this.luhnValid,length_valid:this.lengthValid,cvv_length:this.cvvLength}},normalize=function(t){return t.toString().replace(/[ -]/g,"")},getCardDetails=function(){if(!this.cardNumber)throw"Invalid cardNumber property set"
-var t=this.normalize(this.cardNumber)
-return this.validateCardNumber(t)},setBaseDate=function(t,e){if(isNaN(t)||isNaN(e)||parseInt(t)<1||parseInt(t)>12)throw"Invalid date format. Use MM, YYYY format"
+return null},isValidLuhn=function(t){var e,a,i,r,n,h
+for(i=0,h=t.split("").reverse(),a=r=0,n=h.length;n>r;a=++r)e=h[a],e=+e,a%2?(e*=2,i+=10>e?e:e-9):i+=e
+return i%10===0},isValidLength=function(t,e){var a
+return a=t.length,__indexOf.call(this.card.valid_length,a)>=0},validateCardNumber=function(t){return this.card=getCardType(t),this.card&&this.cardType&&(this.cardType=this.card.name,this.luhnValid=isValidLuhn(t),this.lengthValid=isValidLength.call(this,t,this.card),this.cvvLength=this.card.cvv_length),{card_type:this.cardType,valid:this.luhnValid&&this.lengthValid,luhn_valid:this.luhnValid,length_valid:this.lengthValid,cvv_length:this.cvvLength}},normalize=function(t){return t.toString().replace(/[ -]/g,"")},this.getCardDetails=function(){if(!this.cardNumber)throw"Invalid cardNumber property set"
+var t=normalize(this.cardNumber)
+return validateCardNumber.call(this,t)},this.setBaseDate=function(t,e){if(isNaN(t)||isNaN(e)||parseInt(t)<1||parseInt(t)>12)throw"Invalid date format. Use MM, YYYY format"
 if(!t||!e){var a=new Date
-t=t||a.getMonth()+1,e=e||a.getFullYear()}this.month=parseInt(t),this.year=parseInt(e)},validateCard=function(){if(!this.cardNumber)throw"Invalid cardNumber property set"
-return getCardDetails().valid},validateCvv=function(t){if(t=t||"",!this.cardNumber)throw"Invalid cardNumber property set"
+t=t||a.getMonth()+1,e=e||a.getFullYear()}this.month=parseInt(t),this.year=parseInt(e)},this.validateCard=function(){if(!this.cardNumber)throw"Invalid cardNumber property set"
+return this.getCardDetails().valid},this.validateCvv=function(t){if(t=t||"",!this.cardNumber)throw"Invalid cardNumber property set"
 if(this.card||this.validateCard(),isNaN(t))throw"CVV should be a number"
 if(this.cardType&&"maestro"==this.cardType)return""==t||t&&__indexOf.call(this.cvvLength,t.toString().length)>=0||!1
 if(!t)throw"CVV should be a number"
-return __indexOf.call(this.cvvLength,t.toString().length)>=0},validateExpiry=function(t){var e=/^(0[1-9]|1[0-2])\/2[0-9]{3}$/
+return __indexOf.call(this.cvvLength,t.toString().length)>=0},this.validateExpiry=function(t){var e=/^(0[1-9]|1[0-2])\/2[0-9]{3}$/
 if(!this.cardNumber)throw"Invalid cardNumber property set"
 if(!t)throw"Expiry should not be empty"
 this.card||this.validateCard(),this.month&&this.year||this.setBaseDate(this.month,this.year)

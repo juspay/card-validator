@@ -101,11 +101,11 @@ function cardValidator(cardNumber) {
   };
 
   validateCardNumber = function(number) {
-    this.card = this.getCardType(number);
+    this.card = getCardType(number);
     if(this.card && this.cardType) {
       this.cardType = this.card.name;
-      this.luhnValid = this.isValidLuhn(number);
-      this.lengthValid = this.isValidLength(number, this.card);
+      this.luhnValid = isValidLuhn(number);
+      this.lengthValid = isValidLength.call(this, number, this.card);
       this.cvvLength = this.card.cvv_length;
     }
     return {
@@ -121,14 +121,14 @@ function cardValidator(cardNumber) {
     return number.toString().replace(/[ -]/g, '');
   };
 
-  getCardDetails = function() {
+  this.getCardDetails = function() {
     if(!this.cardNumber)
       throw 'Invalid cardNumber property set';
-    var number = this.normalize(this.cardNumber);
-    return this.validateCardNumber(number);
+    var number = normalize(this.cardNumber);
+    return validateCardNumber.call(this, number);
   };
 
-  setBaseDate = function(month, year) {
+  this.setBaseDate = function(month, year) {
     if(isNaN(month) || isNaN(year) || parseInt(month) < 1 || parseInt(month) > 12)
       throw 'Invalid date format. Use MM, YYYY format';
     if(!month || !year) {
@@ -140,13 +140,13 @@ function cardValidator(cardNumber) {
     this.year = parseInt(year);
   }
 
-  validateCard = function() {
+  this.validateCard = function() {
     if(!this.cardNumber)
       throw 'Invalid cardNumber property set';
-    return getCardDetails().valid;
-  };
+    return this.getCardDetails().valid;
+  }
 
-  validateCvv = function(val) {
+  this.validateCvv = function(val) {
     val = val || '';
     if(!this.cardNumber)
       throw 'Invalid cardNumber property set';
@@ -162,7 +162,7 @@ function cardValidator(cardNumber) {
     return __indexOf.call(this.cvvLength, val.toString().length) >= 0;
   };
 
-  validateExpiry = function(val) {
+  this.validateExpiry = function(val) {
     var _re = /^(0[1-9]|1[0-2])\/2[0-9]{3}$/;
     if(!this.cardNumber)
       throw 'Invalid cardNumber property set';
