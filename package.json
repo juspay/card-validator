@@ -1,6 +1,6 @@
 {
   "name": "simple-card-validator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Card validation helpers for card number, expiry and CVV.",
   "main": "index.js",
   "scripts": {
