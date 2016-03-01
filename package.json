@@ -1,5 +1,5 @@
 {
-  "name": "card-validator",
+  "name": "simple-card-validator",
   "version": "1.0.0",
   "description": "Card validation helpers for card number, expiry and CVV.",
   "main": "index.js",
