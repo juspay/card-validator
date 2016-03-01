@@ -6,8 +6,10 @@ Generic helpers for card number, expiry and CVV validations
 Import the library and initialize card object.
 
 Install from npm:
+
 `npm install simple-card-validator --save`
-`var cardValidator = require('simple-card-validator')`
+
+`var cardValidator = require('simple-card-validator');`
 
 Or, you can simply use the file from `dist/validator.js` if you are not using node/npm.
 
@@ -33,6 +35,7 @@ For validating expiry date,
 
 Additionally, the base date can be set for expiry validations. The base month and date can be provided by using,
 `card.setBaseDate(month, year);`
+
 eg: `card.setBaseDate('02', '2016');`
 
 For validating CVV, use:
