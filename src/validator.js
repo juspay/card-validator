@@ -99,15 +99,15 @@ function cardValidator(cardNumber) {
 
   getCardType = function(number) {
     var _j, _len;
-    for (_j = 0, _len = cardTypes.length; _j < _len; _j++) {
-      if (cardTypes[_j].hasOwnProperty('pattern') && number.match(cardTypes[_j].pattern)) {
+    for(_j = 0, _len = cardTypes.length; _j < _len; _j++) {
+      if(cardTypes[_j].hasOwnProperty('pattern') && number.match(cardTypes[_j].pattern)) {
         return cardTypes[_j];
-      } else if (cardTypes[_j].hasOwnProperty('range')) {
+      } else if(cardTypes[_j].hasOwnProperty('range')) {
         var bin = number.substr(0, 6);
         if(isNaN(bin))
           return null;
         bin = Number.parseInt(bin);
-        for (var _r = 0; _r < cardTypes[_j].range.length; _r++) {
+        for(var _r = 0; _r < cardTypes[_j].range.length; _r++) {
           if(cardTypes[_j].range[_r][0] <= bin && bin <= cardTypes[_j].range[_r][1])
             return cardTypes[_j];
         }
