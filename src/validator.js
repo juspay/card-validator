@@ -52,11 +52,39 @@ var cardTypes = [
     cvv_length: [3]
   }, {
     name: 'rupay',
-    pattern: /^508[5-9][0-9][0-9]|60698[5-9]|60699[0-9]|607[0-8][0-9]{2}|6079[0-7][0-9]|60798[0-4]|60800[1-9]|6080[1-9][0-9]|608[1-4][0-9]{2}|608500|6521[5-9][0-9]|652[2-9][0-9]{2}|6530[0-9]{2}|6531[0-4][0-9]/,
+    range: [
+        [508500, 508999],
+        [606985, 607984],
+        [608001, 608100],
+        [608101, 608500],
+        [652150, 653149]
+    ],
     valid_length: [16],
     cvv_length: [3]
   }
 ];
+
+/**
+ * Regex for Rupay Cards
+ * pattern: /^508[5-9][0-9][0-9]|60698[5-9]|60699[0-9]|607[0-8][0-9]{2}|
+ *            6079[0-7][0-9]|60798[0-4]|60800[1-9]|6080[1-9][0-9]|
+ *            608[1-4][0-9]{2}|608500|6521[5-9][0-9]|652[2-9][0-9]{2}|6530[0-9]{2}|6531[0-4][0-9]/
+ *
+ * [508500, 508999],
+ * [606985, 607384],
+ * [607385, 607484],
+ * [607485, 607984],
+ * [608001, 608100],
+ * [608101, 608200],
+ * [608201, 608300],
+ * [608301, 608350],
+ * [608351, 608500],
+ * [652150, 652849],
+ * [652850, 653049],
+ * [653050, 653149]
+ *
+ **/
+
 
 function cardValidator(cardNumber) {
   this.cardNumber = cardNumber;
@@ -72,8 +100,17 @@ function cardValidator(cardNumber) {
   getCardType = function(number) {
     var _j, _len;
     for (_j = 0, _len = cardTypes.length; _j < _len; _j++) {
-      if (number.match(cardTypes[_j].pattern)) {
+      if (cardTypes[_j].hasOwnProperty('pattern') && number.match(cardTypes[_j].pattern)) {
         return cardTypes[_j];
+      } else if (cardTypes[_j].hasOwnProperty('range')) {
+        var bin = number.substr(0, 6);
+        if(isNaN(bin))
+          return null;
+        bin = Number.parseInt(bin);
+        for (var _r = 0; _r < cardTypes[_j].range.length; _r++) {
+          if(cardTypes[_j].range[_r][0] <= bin && bin <= cardTypes[_j].range[_r][1])
+            return cardTypes[_j];
+        }
       }
     }
     return null;
