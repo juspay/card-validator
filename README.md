@@ -2,7 +2,7 @@
 
 Generic helpers for card number, expiry and CVV validations
 
-## Usage: 
+## Usage:
 Import the library and initialize card object.
 
 Install from npm:
@@ -30,7 +30,7 @@ To simply validate a card, call:
 `card.validateCard();`
 The result will be a validity boolean.
 
-For validating expiry date, 
+For validating expiry date,
 `card.validateExpiry('12/2018');`
 
 Additionally, the base date can be set for expiry validations. The base month and date can be provided by using,
@@ -42,6 +42,13 @@ For validating CVV, use:
 `card.validateCvv(111);`
 CVV will be validated based on the brand of the card.
 
+
+## Contribution
+
+Read through the development 
+[guidelines](https://sites.google.com/a/juspay.in/card-validator-devel-guide/).
+
 ## License
 
 MIT license. Copyright © 2016 - [juspay.in](https://www.juspay.in).
+
