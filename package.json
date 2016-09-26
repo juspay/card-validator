@@ -4,7 +4,8 @@
   "description": "Card validation helpers for card number, expiry and CVV.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minify": "minify --output dist/validator.js src/validator.js"
   },
   "repository": {
     "type": "git",
