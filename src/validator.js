@@ -13,7 +13,7 @@ var cardTypes = [
     cvv_length: [3]
   }, {
     name: 'diners_club_international',
-    pattern: /^36/,
+    pattern: /^3([689]|09)/,
     valid_length: [14],
     cvv_length: [3]
   }, {
