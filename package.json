@@ -1,6 +1,6 @@
 {
   "name": "simple-card-validator",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Card validation helpers for card number, expiry and CVV.",
   "main": "index.js",
   "scripts": {
@@ -24,4 +24,3 @@
   },
   "homepage": "https://github.com/juspay/card-validator#readme"
 }
-
