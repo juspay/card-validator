@@ -8,7 +8,7 @@
 5. Create a new Pull Request
 
 
-## For publishing to NPM:
+## For publishing to NPM
 
 ### Minification
  - Use node-minifier: https://www.npmjs.com/package/minifier
