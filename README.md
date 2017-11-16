@@ -7,7 +7,7 @@ Import the library and initialize card object.
 
 Install from npm:
 
-`npm install simple-card-validator --save`
+`npm i @juspay/simple-card-validator --save`
 
 `var cardValidator = require('simple-card-validator');`
 
