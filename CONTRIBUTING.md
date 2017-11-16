@@ -6,3 +6,19 @@
 3. Commit your changes (`git commit -am 'Add some foo bar'`)
 4. Push to the branch (`git push origin feature/foo-bar`)
 5. Create a new Pull Request
+
+
+## For publishing to NPM:
+
+### Minification
+ - Use node-minifier: https://www.npmjs.com/package/minifier
+ - Install minifier: `npm install -g minifier`
+
+And minify, `npm run minify` or `minify --output dist/validator.js src/validator.js`
+
+
+### Publishing to NPM
+ - Get yourself added as a collaborator.
+ - Increment the build version/project version in package.json
+
+Run, `npm publish`
