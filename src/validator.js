@@ -116,6 +116,7 @@ function cardValidator(cardNumber) {
   this.lengthValid = false;
   this.cvvLength = [];
   this.gaps = [];
+  this.maxLength = null;
   this.month = null;
   this.year = null;
 
@@ -172,6 +173,7 @@ function cardValidator(cardNumber) {
       this.lengthValid = isValidLength.call(this, number, this.card);
       this.cvvLength = this.card.cvv_length;
       this.gaps = this.card.gaps;
+      this.maxLength = this.card.valid_length[this.card.valid_length.length - 1]
     }
     return {
       card_type: this.cardType,
@@ -180,6 +182,7 @@ function cardValidator(cardNumber) {
       length_valid: this.lengthValid,
       cvv_length: this.cvvLength,
       gaps: this.gaps,
+      maxLength: this.maxLength
     };
   };
 
