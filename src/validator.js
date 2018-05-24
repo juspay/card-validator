@@ -156,7 +156,6 @@ function cardValidator(cardNumber) {
   validateCardNumber = function(number) {
     this.card = getCardType(number);
     if(this.card && this.cardType) {
-      console.log(this.card);
       this.cardType = this.card.name;
       this.luhnValid = isValidLuhn(number);
       this.lengthValid = isValidLength.call(this, number, this.card);
