@@ -104,6 +104,7 @@ function cardValidator(cardNumber) {
   this.luhnValid = false;
   this.lengthValid = false;
   this.cvvLength = [];
+  this.supportedLengths = [];
   this.month = null;
   this.year = null;
 
@@ -155,17 +156,20 @@ function cardValidator(cardNumber) {
   validateCardNumber = function(number) {
     this.card = getCardType(number);
     if(this.card && this.cardType) {
+      console.log(this.card);
       this.cardType = this.card.name;
       this.luhnValid = isValidLuhn(number);
       this.lengthValid = isValidLength.call(this, number, this.card);
       this.cvvLength = this.card.cvv_length;
+      this.supportedLengths = this.card.valid_length;
     }
     return {
       card_type: this.cardType,
       valid: this.luhnValid && this.lengthValid,
       luhn_valid: this.luhnValid,
       length_valid: this.lengthValid,
-      cvv_length: this.cvvLength
+      cvv_length: this.cvvLength,
+      supported_lengths : this.supportedLengths
     };
   };
 
