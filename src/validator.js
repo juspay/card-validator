@@ -182,7 +182,7 @@ function cardValidator(cardNumber) {
       length_valid: this.lengthValid,
       cvv_length: this.cvvLength,
       gaps: this.gaps,
-      maxLength: this.maxLength
+      max_length: this.maxLength
     };
   };
 
