@@ -168,7 +168,7 @@ function cardValidator(cardNumber) {
       luhn_valid: this.luhnValid,
       length_valid: this.lengthValid,
       cvv_length: this.cvvLength,
-      supported_lengths : this.supportedLengths
+      supported_lengths: this.supportedLengths
     };
   };
 
