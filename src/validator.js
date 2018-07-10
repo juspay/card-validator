@@ -116,6 +116,7 @@ function cardValidator(cardNumber) {
   this.lengthValid = false;
   this.cvvLength = [];
   this.gaps = [];
+  this.supportedLengths = [];
   this.maxLength = null;
   this.month = null;
   this.year = null;
@@ -173,7 +174,8 @@ function cardValidator(cardNumber) {
       this.lengthValid = isValidLength.call(this, number, this.card);
       this.cvvLength = this.card.cvv_length;
       this.gaps = this.card.gaps;
-      this.maxLength = this.card.valid_length[this.card.valid_length.length - 1]
+      this.supportedLengths = this.card.valid_length;
+      this.maxLength = this.card.valid_length[this.card.valid_length.length - 1];
     }
     return {
       card_type: this.cardType,
@@ -182,6 +184,7 @@ function cardValidator(cardNumber) {
       length_valid: this.lengthValid,
       cvv_length: this.cvvLength,
       gaps: this.gaps,
+      supported_lengths: this.supportedLengths,
       max_length: this.maxLength
     };
   };
