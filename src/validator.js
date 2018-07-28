@@ -71,7 +71,14 @@ var cardTypes = [
     pattern: /^(6011|622(12[6-9]|1[3-9][0-9]|[2-8][0-9]{2}|9[0-1][0-9]|92[0-5]|64[4-9])|65)/,
     valid_length: [16],
     cvv_length: [3]
-  }
+  },
+  {
+       type: 'sodexo',
+       pattern: /^(637513)/,
+       length: [16],
+       cvcLength: [3],
+       luhn: true
+   }
 ];
 
 /**
