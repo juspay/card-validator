@@ -2,6 +2,8 @@
 
 Generic helpers for card number, expiry and CVV validations
 
+[![npm version](https://badge.fury.io/js/%40juspay%2Fsimple-card-validator.svg)](https://badge.fury.io/js/%40juspay%2Fsimple-card-validator)
+
 ## Usage:
 Import the library and initialize card object.
 
