@@ -82,7 +82,14 @@ var cardTypes = [
     valid_length: [16],
     cvv_length: [3],
     gaps: [4, 8, 12],
-  }
+  },
+  {
+    type: 'sodexo',
+    pattern: /^(637513)/,
+    length: [16],
+    cvcLength: [3],
+    gaps: [4, 8, 12]
+   }
 ];
 
 /**

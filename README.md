@@ -23,8 +23,26 @@ This would output, card brand and different validation outputs like below:
   valid: true,
   luhn_valid: true,
   length_valid: true,
-  cvv_length: [ 3 ] }
+  cvv_length: [ 3 ],
+  gaps: [ 4, 8, 12 ],
+  supported_lengths: [ 16 ],
+  max_length: 16 }
 ```
+
+#### Output format
+
+| Field             | Description                           | Type              |
+| ----------------- | ------------------------------------- | ----------------- |
+| card_type         | The card issuer for the provided card | String            |
+| valid             | Are the card details valid            | Boolean           |
+| luhn_valid        | Is the card number valid              | Boolean           |
+| length_valid      | If the card number length is valid    | Boolean           |
+| cvv_length        | If the CVV/CAVV length is valid       | Array [ Integer ] |
+| gaps              | Gaps for UI as printed in cards       | Array [ Integer ] |
+| supported_lengths | Supported lengths for the card type   | Array [ Integer ] |
+| max_length        | Maximum length for the card type      | Integer           |
+
+
 ### Validations
 To simply validate a card, call:
 `card.validateCard();`
@@ -45,10 +63,10 @@ CVV will be validated based on the brand of the card.
 
 ## Contribution
 
-Read through the development 
+Read through the development
 [guidelines](https://sites.google.com/a/juspay.in/card-validator-devel-guide/).
 
 ## License
 
-MIT license. Copyright © 2016 - [juspay.in](https://www.juspay.in).
+MIT license. Copyright © 2018 - [juspay.in](https://www.juspay.in).
 
