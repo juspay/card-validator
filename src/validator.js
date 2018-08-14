@@ -84,10 +84,10 @@ var cardTypes = [
     gaps: [4, 8, 12],
   },
   {
-    type: 'sodexo',
+    name: 'sodexo',
     pattern: /^(637513)/,
-    length: [16],
-    cvcLength: [3],
+    valid_length: [16],
+    cvv_length: [3],
     gaps: [4, 8, 12]
    }
 ];
@@ -217,13 +217,13 @@ function cardValidator(cardNumber) {
     }
     this.month = parseInt(month);
     this.year = parseInt(year);
-  }
+  };
 
   this.validateCard = function() {
     if(!this.cardNumber)
       throw 'Invalid cardNumber property set';
     return this.getCardDetails().valid;
-  }
+  };
 
   this.validateCvv = function(val) {
     val = val || '';
