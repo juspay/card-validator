@@ -1,5 +1,5 @@
 {
-  "name": " @juspay/simple-card-validator",
+  "name": "@juspay/simple-card-validator",
   "version": "1.2.1",
   "description": "Card validation helpers for card number, expiry and CVV.",
   "main": "index.js",
