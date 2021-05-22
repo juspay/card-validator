@@ -44,7 +44,7 @@ var cardTypes = [
     gaps: [4, 8, 12],
   }, {
     name: 'mastercard',
-    pattern: /^5[1-5]/,
+    range : [[222100, 272099],[510000, 559999]],
     valid_length: [16],
     cvv_length: [3],
     gaps: [4, 8, 12],
